@@ -10,6 +10,14 @@
       notify:
         - restart apache2
     
+    - name: change ownership of file
+      file:
+        path: "/var/www/html/index.html"
+        state: file
+        owner: azureuser
+        group: www-data
+        mode: 0775
+    
     - name: change ownership of directory
       file:
         path: "/var/www/html"
